@@ -1,0 +1,100 @@
+﻿
+<!-- 这是 PCL2 的主页自定义文件。你可以通过修改这个文件来自定义你的 PCL2 主页：添加文本、打开网页、启动游戏等等。目前它还不能做到太多事情，但将来会变得越来越强大。
+     如果你倒腾这个文件把 PCL2 玩炸了，把这个文件直接删除就行了。
+     如果你懂得 WPF 的布局文件编写，你甚至可以做出不少的新玩意儿…… -->
+
+<local:MyCard Title="服务器公告" Margin="0,0,0,15">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="[置顶] 任何问题可以添加服务器群893498998" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="[!] 当前服务器正处于测试状态，部分功能并非100%稳定" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="[!] 部分世界死亡仍会掉落！请注意！" />
+        <local:MyButton Margin="0,8,0,10" Width="200" Height="35" ColorType="Highlight"
+                   Text="打开服务器卫星地图" EventType="打开网页" EventData="http://www.shutdownserver.top:8123" ToolTip="点击打开 shutdown_craft 卫星地图" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="服务器更新日志" Margin="0,0,0,15" CanSwap="True" IsSwaped="False">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="更新类型：测试     更新日期：2020/10/15" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="1.领地的上限调整" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="2.大部分插件已汉化" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="3.删除无用插件" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="4.motd更新(修复)" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="5.修复世界难度问题" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="6.移除国际市场(由于无法修复)" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="7.优化死亡不掉落" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="8.更新部分插件" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="9.更新空岛生存(Beta)" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="10.优化网页地图" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="11.优化服务器运行" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="12.增加血条功能" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="13.移除资源世界" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="14.优化背包机制" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="15.TAB列表优化" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="16.玩家上方名称内容更新" />
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="17.菜单优化" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="服务器更新预告" Margin="0,0,0,15" CanSwap="True" IsSwaped="True">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
+                   Text="暂无..." />
+    </StackPanel>
+</local:MyCard>
+
+
+<!-- 
+
+常见的属性列表
+
+通用属性：
+ - Width、Height：设置宽度与高度
+ - ToolTip：设置鼠标指向时的提示文本
+ - Foreground：调整前景颜色（十六进制字符串，例如 #FF010203 代表 ARGB 中的 255,1,2,3。前两位代表不透明度，FF 为全不透明，00 为全透明）
+ - Background：调整背景颜色（使用类似 Background="{DynamicResource ColorBrush5}" 的格式以调用 PCL2 当前的主题颜色，修改末尾的数字编号以改变颜色浓度）
+ - Margin：调整外边距（格式为 左,上,右,下。例如 Margin="0,0,0,2" 即为 2 单位的下边距）
+ - HorizontalAlignment：设置对齐方式（Left、Center、Right）
+
+TextBlock 属性：
+ - Text：设置显示的文本（&#xA; 代表换行）
+ - TextWrapping：开启自动换行
+ - FontSize：设置字号
+
+local:MyButton 属性：
+ - Text：设置显示的文本
+ - Padding：设置内边距，格式与 Margin 一致
+ - ColorType：设置颜色主题（Normal、Highlight、Red 三选一，默认为 Normal）
+ - Tag：设置点击时的操作
+     Tag="启动-1.12.2"：点击时启用当前 Minecraft 文件夹下的 1.12.2 版本，如果没有则弹出错误提示
+	 Tag="链接-https://www.baidu.com/"：点击时打开网页
+
+local:MyCard 属性：
+ - Title：设置显示的标题文本
+ - CanSwap：这张卡片是否可以折叠，True 为是，False 为否
+ - IsSwaped：这张卡片是否默认折叠，要求 CanSwap 必须为 True
+
+-->
